@@ -1,0 +1,46 @@
+{
+    "ComputeServers": {
+        "My_GitHub_Account": {
+            "FaaSType": "GitHubActions",
+            "UserName": "renatof",
+            "ActionRepoName": "idigbio_media_download_action",
+            "Branch": "main",
+            "Token": "My_GitHub_Account_TOKEN"
+        }
+    },
+    "DataStores": {
+        "My_Minio_Bucket": {
+            "Endpoint": "https://play.min.io",
+            "Bucket": "faasr",
+            "Region": "",
+            "Writable": "TRUE",
+            "AccessKey": "My_Minio_Bucket_ACCESS_KEY",
+            "SecretKey": "My_Minio_Bucket_SECRET_KEY"
+        }
+    },
+    "FunctionList": {
+        "start": {
+            "FunctionName": "idigbio_media_download",
+            "FaaSServer": "My_GitHub_Account",
+            "Arguments": {
+                "folder": "idigbio",
+                "genus": "acer"
+            }
+        }
+    },
+    "ActionContainers": {
+        "idigbio_media_download": "ghcr.io/faasr/github-actions-tidyverse:1.3.0"
+    },
+    "FunctionGitRepo": {
+        "idigbio_media_download": "FaaSr/FaaSr-examples/idigbio_media_download/idigbio_media_download.R"
+    },
+    "FunctionCRANPackage": {
+        "idigbio_media_download": "ridigbio"
+    },
+    "FunctionInvoke": "start",
+    "InvocationID": "",
+    "FaaSrLog": "FaaSrLog",
+    "LoggingDataStore": "My_Minio_Bucket",
+    "DefaultDataStore": "My_Minio_Bucket"
+}
+
